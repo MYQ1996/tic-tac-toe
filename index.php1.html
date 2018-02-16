@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>TIC-TAC-TOE</title>
+	<link rel="stylesheet" href="assets/css/style.css">
+	<style type="text/css">
+	/* style for user image (overwrite .o) */
+	.o {
+		/*background: url('uploads/photo.jpg') no-repeat center center ;*/
+		background-size: 60px !important; 
+		border-radius: 50%; 
+		border: 1px solid rgba(0, 0, 0, .2) !important;
+	}
+	</style>
+	<!-- put any js-code into this file -->
+	<script src="assets/js/jquery-2.1.1.min.js"></script>
+	<script src="assets/js/app.js"></script>
+
+</head>
+<body>
+<section class="container-game"  id="uploads">
+	<article class="title-row">
+		<h1>TIC-TAC-TOE</h1>
+	</article>
+	<article class="row initial-page">
+		<article class="col">
+			<article class="subtitle-row">
+				<h2>Instructions</h2>
+			</article>
+			<article class="container-row">
+				Instructions of game:
+				<ul>
+					<li>Select Photo (optional)</li>
+					<li>Press "Start New Game"</li>
+					<li>Play Game: try to mark three fields in a vertical, horizontal or diagonal row one move before the computer</li>
+				</ul>
+			</article>
+			<article class="subtitle-row">
+				<h2>High Scores</h2>
+			</article>
+			<article class="container-row high scroll">
+				<article class="scroll-view">
+
+					<!--gaofeng-->
+
+				</article>
+		</article>
+		</article>
+		<article class="col border-line col-game-spacing">
+			<article class="subtitle-row">
+				<h2>Start new game</h2>
+			</article>
+			<article class="container-row form">
+				<form id="touxiang"  class="form-content">
+					<label for="photo">Upload photo <span class="optional right"> Optional </span></label>
+					<input id="photo" type="file" name="photo"><br>
+					<input type="hidden" name="template" id="" class="" value="1">
+					<input type="button" name="" id="" value="START NEW GAME" onclick="uploadimg()" >
+				</form>
+				<article class="alert-spacing-error" id="error" style="display: none;">
+					<article class="alert"><span class="underline">Error uploading photo:</span> Verify size or type of file!!</article>
+				</article>
+			</article>
+		</article>
+</section>
+<section class="container-game" style="display: none;" id="game">
+	<article class="title-row">
+		<h1>TIC-TAC-TOE</h1>
+	</article>
+	<article class="row initial-page">
+		<article class="col">
+			<article class="subtitle-row">
+				<h2>Instructions</h2>
+			</article>
+			<article class="container-row">
+				Instructions of game:
+				<ul>
+					<li>Select Photo (optional)</li>
+					<li>Press "Start New Game"</li>
+					<li>Play Game: try to mark three fields in a vertical, horizontal or diagonal row one move before the computer</li>
+				</ul>
+			</article>
+			<article class="subtitle-row">
+				<h2>High Scores</h2>
+			</article>
+			<article class="container-row high scroll">
+				<article class="scroll-view">
+
+					<!--gaofeng-->
+
+
+
+
+				</article>
+			</article>
+		</article>
+		<article class="col col-game-spacing">
+			<article class="subtitle-row">
+				<h2>Playing game...</h2>
+				<article class="alert-spacing">
+					<!--<article class="alert">You Win!!</article>-->
+				</article>
+				<figure class="container-photo circle img_tic o"></figure>
+				<figure class="container-photo circle img_tic x"></figure>
+				<p class="dates" style="display: none" id="time">Time: <span class="time">0 sec</span></p>
+				<article class="alert-spacing win" style="display: none" >
+					<article class="alert game-alert" >You Win!!</article>
+				</article>
+
+				<article class="alert-spacing lose" style="display: none;background: #34FF9D;">
+					<article class="alert game-alert" >You lose!!</article>
+				</article>
+
+				<article class="alert-spacing">
+					<article class="alert game-alert ping" style="display: none;background: #ff9800">You ping!!</article>
+				</article>
+
+
+				<h3 class="relative-pos-game">
+					<span class="points"><span class="nameuser">Player: <span class="usermoves moves" id="player">0</span></span></span><span class="points"><span class="computer">Computer: <span class="computermoves moves" id="computer">0</span></span></span>
+				</h3>
+			</article>
+			<article class="container-row relative-pos-game">
+				<article class="game">
+					<article class="field"><button id="1" class="btn img_tic" onclick="play(1)"></button></article>
+					<article class="field"><button id="2" class="btn img_tic" onclick="play(2)"></button></article>
+					<article class="field"><button id="3" class="btn img_tic" onclick="play(3)"></button></article>
+					<article class="field"><button id="4" class="btn img_tic" onclick="play(4)"></button></article>
+					<article class="field"><button id="5"  class="btn img_tic" onclick="play(5)"></button></article>
+					<article class="field"><button id="6" class="btn img_tic" onclick="play(6)"></button></article>
+					<article class="field"><button id="7"  class="btn img_tic" onclick="play(7)"></button></article>
+					<article class="field"><button id="8"  class="btn img_tic" onclick="play(8)"></button></article>
+					<article class="field"><button id="9"  class="btn img_tic" onclick="play(9)"></button></article>
+				</article>
+			</article>
+			<article class="container-row center form win"  style="display: none">
+				<article class="form-win">
+					<form id="username">
+						<label for="nickname">Enter your Nickname </label>
+						<input id="nickname" type="text" name="nickname" placeholder="Nickname">
+						<input type="button" name="" id="" value="Submit" onclick="username()" >
+					</form>
+					<article class="alert-spacing-error" id="name" style="display: none;">
+						<article class="alert"><span class="underline">Message:</span> Enter your nickname !!</article>
+					</article>
+				</article>
+			</article>
+
+			<div class="button-start" >
+				<a href="index.php.html"><button onclick="start()">START NEW GAME</button></a>
+			</div>
+
+		</article>
+</section>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
